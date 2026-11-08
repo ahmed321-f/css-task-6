@@ -1,0 +1,138 @@
+/* ---------- Basic page setup ---------- */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  background: #f4f6f8;
+  color: #222;
+}
+
+header {
+  background: #2c3e50;
+  color: #fff;
+  text-align: center;
+  padding: 30px 15px;
+}
+
+header h1 {
+  margin: 0 0 8px;
+}
+
+main {
+  max-width: 800px;
+  margin: 25px auto;
+  padding: 0 15px;
+}
+
+main > section {
+  background: #fff;
+  border-radius: 8px;
+  padding: 18px;
+  margin-bottom: 22px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+  margin-top: 0;
+  color: #2c3e50;
+}
+
+code {
+  background: #eef1f4;
+  padding: 2px 6px;
+  border-radius: 4px;
+  color: #c0392b;
+}
+
+.demo {
+  border: 2px dashed #b0b8c0;
+  padding: 12px;
+  border-radius: 6px;
+}
+
+/* ---------- 1. Descendant combinator (space) ---------- */
+/* every p inside the div, even the nested one */
+#descendant .demo div p {
+  background: #ffe9a8;
+  padding: 6px 10px;
+  border-left: 5px solid #f39c12;
+}
+
+/* ---------- 2. Child combinator (>) ---------- */
+/* only direct li children of ul */
+#child ul > li {
+  background: #c8f2d4;
+  border-left: 5px solid #27ae60;
+  padding: 6px 10px;
+  margin-bottom: 6px;
+  list-style: none;
+}
+
+/* ---------- 3. Adjacent sibling combinator (+) ---------- */
+/* only the p right after h3 */
+#adjacent h3 + p {
+  background: #cfe6ff;
+  border-left: 5px solid #2980b9;
+  padding: 6px 10px;
+}
+
+/* ---------- 4. General sibling combinator (~) ---------- */
+/* all span elements after h4 */
+#general h4 ~ span {
+  display: block;
+  background: #f5cfe9;
+  border-left: 5px solid #c0398f;
+  padding: 6px 10px;
+  margin-bottom: 4px;
+}
+
+/* ---------- 5. Selector list (comma) ---------- */
+#group h5,
+#group em {
+  color: #fff;
+  background: #8e44ad;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-style: normal;
+}
+
+/* ---------- Summary table ---------- */
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th,
+td {
+  border: 1px solid #ccd2d8;
+  padding: 8px;
+  text-align: left;
+}
+
+thead th {
+  background: #2c3e50;
+  color: #fff;
+}
+
+tbody > tr:nth-child(even) {
+  background: #f0f3f6;
+}
+
+footer {
+  text-align: center;
+  padding: 15px;
+  background: #2c3e50;
+  color: #fff;
+}
+
+@media (max-width: 500px) {
+  th,
+  td {
+    font-size: 13px;
+    padding: 5px;
+  }
+}

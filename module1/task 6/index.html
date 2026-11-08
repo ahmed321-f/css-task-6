@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CSS Combinators</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header>
+    <h1>CSS Combinators</h1>
+    <p>A combinator explains the relationship between two selectors.</p>
+  </header>
+
+  <main>
+
+    <!-- 1. Descendant -->
+    <section id="descendant">
+      <h2>1. Descendant Selector (space)</h2>
+      <p class="rule">Syntax: <code>div p { }</code> &mdash; selects every p inside a div, at any depth.</p>
+      <div class="demo">
+        <div>
+          <p>I am a direct child p inside div.</p>
+          <section>
+            <p>I am a nested p inside div &rarr; section. I am selected too.</p>
+          </section>
+        </div>
+        <p>I am outside the div, so I am not selected.</p>
+      </div>
+    </section>
+
+    <!-- 2. Child -->
+    <section id="child">
+      <h2>2. Child Selector (&gt;)</h2>
+      <p class="rule">Syntax: <code>ul &gt; li { }</code> &mdash; selects only direct children.</p>
+      <div class="demo">
+        <ul>
+          <li>Direct child (selected)</li>
+          <li>Direct child (selected)
+            <ol>
+              <li>Grandchild (not selected)</li>
+              <li>Grandchild (not selected)</li>
+            </ol>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- 3. Adjacent sibling -->
+    <section id="adjacent">
+      <h2>3. Adjacent Sibling Selector (+)</h2>
+      <p class="rule">Syntax: <code>h3 + p { }</code> &mdash; selects the first p placed immediately after an h3.</p>
+      <div class="demo">
+        <h3>Heading</h3>
+        <p>I come right after the h3 (selected).</p>
+        <p>I am the second p (not selected).</p>
+        <p>I am the third p (not selected).</p>
+      </div>
+    </section>
+
+    <!-- 4. General sibling -->
+    <section id="general">
+      <h2>4. General Sibling Selector (~)</h2>
+      <p class="rule">Syntax: <code>h4 ~ span { }</code> &mdash; selects all span siblings that come after an h4.</p>
+      <div class="demo">
+        <span>Span before h4 (not selected)</span>
+        <h4>Heading 4</h4>
+        <span>Span after h4 (selected)</span>
+        <span>Another span after h4 (selected)</span>
+        <p>A paragraph in between (ignored)</p>
+        <span>Last span (selected)</span>
+      </div>
+    </section>
+
+    <!-- 5. Selector list -->
+    <section id="group">
+      <h2>5. Selector List (comma)</h2>
+      <p class="rule">Syntax: <code>h5, em { }</code> &mdash; applies one style to several selectors. Strictly it is a grouping, not a combinator, but it is often studied with them.</p>
+      <div class="demo">
+        <h5>I am an h5</h5>
+        <p>This sentence has an <em>emphasised word</em> inside it.</p>
+      </div>
+    </section>
+
+    <!-- Summary -->
+    <section id="summary">
+      <h2>Quick Summary</h2>
+      <table>
+        <thead>
+          <tr><th>Combinator</th><th>Symbol</th><th>Example</th><th>Selects</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Descendant</td><td>space</td><td>div p</td><td>All p inside div</td></tr>
+          <tr><td>Child</td><td>&gt;</td><td>ul &gt; li</td><td>Direct children only</td></tr>
+          <tr><td>Adjacent sibling</td><td>+</td><td>h3 + p</td><td>Next sibling only</td></tr>
+          <tr><td>General sibling</td><td>~</td><td>h4 ~ span</td><td>All later siblings</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>CSS Task 6 &ndash; Combinators</p>
+  </footer>
+
+</body>
+</html>
